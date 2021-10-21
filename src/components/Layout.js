@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
         siteDescription={site.siteMetadata.defaultDescription}
       />
       <main id="primary">{children}</main>
-      <Footer siteTitle={site.siteMetadata.title} />
+      <Footer siteTitle={site.siteMetadata.defaultTitle} />
     </>
   )
 }
