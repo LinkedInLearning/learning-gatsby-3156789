@@ -19,7 +19,8 @@ const Layout = ({ children }) => {
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title
+            defaultTitle
+            defaultDescription
           }
         }
       }
@@ -32,8 +33,8 @@ const Layout = ({ children }) => {
         Skip to the content
       </a>
       <Header
-        siteTitle={site.siteMetadata.title}
-        siteDescription={site.siteMetadata.description}
+        siteTitle={site.siteMetadata.defaultTitle}
+        siteDescription={site.siteMetadata.defaultDescription}
       />
       <main id="primary">{children}</main>
       <Footer siteTitle={site.siteMetadata.title} />
