@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    defaultTitle: `Opinionated Starter`,
+    defaultTitle: `The New Site Title`,
     titleTemplate: `%s · a starting point`,
     author: `@mor10`,
     defaultDescription: `An opinionated starter for Gatsby`,

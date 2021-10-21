@@ -14,8 +14,9 @@ const IndexPage = () => (
       // article
     />
     <section>
-      <h1>Welcome to the Project</h1>
+      <h1>The new page title</h1>
       <div>
+        <p>This is the site we built together using Gatsby.</p>
         <p>This is the site we built together using Gatsby.</p>
         <p>
           Though it may not look like much, it holds all the essentials you'll
