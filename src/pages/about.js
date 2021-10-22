@@ -2,6 +2,7 @@ import * as React from "react"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
+import RobotImage from "../components/RobotImage"
 
 const AboutPage = () => (
   <Layout>
@@ -16,12 +17,9 @@ const AboutPage = () => (
     <section>
       <h1>About this project</h1>
       <div>
-        <img
-          src="/images/bubbles-callout.png"
-          with="480"
-          height="440"
-          alt="Bubbles the robot"
-        />
+        <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
+        <RobotImage src="/images/dolly-callout.png" alt="dolly the robot" />
+        <RobotImage src="/images/eileen-callout.png" alt="eileen the robot" />
         <p>
           Though it may not look like much, it holds all the essentials you'll
           need to get started building your own sites with Gatsby.
