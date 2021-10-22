@@ -1,8 +1,16 @@
 import * as React from "react"
+import styled from "styled-components "
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import RobotImage from "../components/RobotImage"
+
+const Container = styled.section`
+  margin: 2rem auto;
+  max-width: 70ch;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+`
 
 const AboutPage = () => (
   <Layout>
@@ -14,7 +22,7 @@ const AboutPage = () => (
       // Boolean indicating whether this is an article:
       // article
     />
-    <section>
+    <Container>
       <h1>About this project</h1>
       <div>
         <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
@@ -35,7 +43,7 @@ const AboutPage = () => (
           And finally, lykke til from me to you on your journey with Gatsby!
         </p>
       </div>
-    </section>
+    </Container>
   </Layout>
 )
 
