@@ -16,6 +16,12 @@ const AboutPage = () => (
     <section>
       <h1>About this project</h1>
       <div>
+        <img
+          src="/images/bubbles-callout.png"
+          with="480"
+          height="440"
+          alt="Bubbles the robot"
+        />
         <p>
           Though it may not look like much, it holds all the essentials you'll
           need to get started building your own sites with Gatsby.
