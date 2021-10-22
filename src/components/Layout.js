@@ -12,6 +12,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
+// Styles
+import "../styles/reset.css"
+import "../styles/accessibility.css"
+import "../styles/global.module.css"
+import "../fonts/fonts.css"
+import * as styles from "./layout.module.css"
+
 const Layout = ({ children }) => {
   // Destructure query return down to site:
   const { site } = useStaticQuery(
@@ -36,7 +43,9 @@ const Layout = ({ children }) => {
         siteTitle={site.siteMetadata.defaultTitle}
         siteDescription={site.siteMetadata.defaultDescription}
       />
-      <main id="primary">{children}</main>
+      <main id="primary" className={styles.site_main}>
+        {children}
+      </main>
       <Footer siteTitle={site.siteMetadata.defaultTitle} />
     </>
   )
