@@ -3,6 +3,8 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 
+import * as styles from "./index.module.css"
+
 const IndexPage = () => (
   <Layout>
     <Seo
@@ -13,9 +15,9 @@ const IndexPage = () => (
       // Boolean indicating whether this is an article:
       // article
     />
-    <section>
-      <h1>Welcome to the Project</h1>
-      <div>
+    <section className={styles.wrapper}>
+      <h1 className={styles.heading}>Welcome to the Project</h1>
+      <div className={styles.something}>
         <p>This is the site we built together using Gatsby.</p>
         <p>
           Though it may not look like much, it holds all the essentials you'll

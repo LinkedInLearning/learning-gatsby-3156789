@@ -17,7 +17,7 @@
   /* Sizes and widths */
   --content-w-wide: 80rem;
   --content-w-regular: 60rem;
-  --content-w-narrow: 40rem;
+  --content-w-narrow: 70ch;
 }
 
 @custom-media --viewport-narrow-max (max-width: 40rem);
