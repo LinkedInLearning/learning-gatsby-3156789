@@ -17,7 +17,7 @@ const IndexPage = () => (
     />
     <section className={styles.wrapper}>
       <h1 className={styles.heading}>Welcome to the Project</h1>
-      <div className={styles.something}>
+      <div>
         <p>This is the site we built together using Gatsby.</p>
         <p>
           Though it may not look like much, it holds all the essentials you'll

@@ -2,6 +2,8 @@ import * as React from "react"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
+
+import * as styles from "./about.module.css"
 import RobotImage from "../components/RobotImage"
 
 const AboutPage = () => (
@@ -14,8 +16,8 @@ const AboutPage = () => (
       // Boolean indicating whether this is an article:
       // article
     />
-    <section>
-      <h1>About this project</h1>
+    <section className={styles.wrapper}>
+      <h1 className={styles.heading}>About this project</h1>
       <div>
         <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
         <RobotImage src="/images/dolly-callout.png" alt="dolly the robot" />
