@@ -38,5 +38,13 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "content-images",
+        path: "./content/images/",
+      },
+      __key: "content-images",
+    },
   ],
 }
