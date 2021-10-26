@@ -17,7 +17,6 @@ function Seo({ title, description, lang, image, pathname, article, meta }) {
         site {
           siteMetadata {
             defaultTitle
-            titleTemplate
             defaultDescription
             siteUrl
             logo
@@ -29,7 +28,6 @@ function Seo({ title, description, lang, image, pathname, article, meta }) {
   )
 
   const metaTitle = title || site.siteMetadata.defaultTitle
-  const titleTemplate = `%s` || site.siteMetadata.titleTemplate
   const metaDescription = description || site.siteMetadata.defaultDescription
   const metaURL = `${site.siteMetadata.siteUrl}${pathname || ``}`
   const metaImage = `${site.siteMetadata.siteUrl}${
