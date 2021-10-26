@@ -9,7 +9,7 @@ import RobotImage from "../components/RobotImage"
 const AboutPage = () => (
   <Layout>
     <Seo
-      title="Aboutpage"
+      title="About page"
       description="About page description."
       image="/logo.png"
       pathname="/"

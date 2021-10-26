@@ -44,7 +44,6 @@ function Seo({ title, description, lang, image, pathname, article, meta }) {
         lang,
       }}
       title={metaTitle}
-      titleTemplate={metaTitle ? `${metaTitle} ${titleTemplate}` : null}
       meta={[
         {
           name: `description`,
