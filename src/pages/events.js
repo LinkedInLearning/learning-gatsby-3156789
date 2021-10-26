@@ -1,4 +1,5 @@
 import * as React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
@@ -15,6 +16,11 @@ const EventsPage = () => {
         pathname="/"
         // Boolean indicating whether this is an article:
         // article
+      />
+      <StaticImage
+        src="../../content/images/getting-creative-with-3-d-printers-1184x360.jpg"
+        alt="A dinosaur"
+        layout="fullWidth"
       />
       <section className={styles.wrapper}>
         <h1 className={styles.heading}>Events</h1>
