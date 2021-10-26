@@ -1,4 +1,5 @@
 import * as React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
@@ -17,6 +18,10 @@ const AboutPage = () => (
       // article
     />
     <section className={styles.wrapper}>
+      <StaticImage
+        src="../../content/images/robots-androids-and-cyborgs-oh-my-1184x360.jpg"
+        alt="A dinosaur"
+      />
       <h1 className={styles.heading}>About this project</h1>
       <div>
         <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
