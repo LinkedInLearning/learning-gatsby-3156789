@@ -21,6 +21,8 @@ const AboutPage = () => (
       <StaticImage
         src="../../content/images/robots-androids-and-cyborgs-oh-my-1184x360.jpg"
         alt="A dinosaur"
+        aspectRatio={4 / 3}
+        transformOptions={{ grayscale: true }}
       />
       <h1 className={styles.heading}>About this project</h1>
       <div>
