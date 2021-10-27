@@ -1,5 +1,4 @@
 import * as React from "react"
-import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
@@ -8,7 +7,7 @@ import Seo from "../components/Seo"
 import * as styles from "./about.module.css"
 import RobotImage from "../components/RobotImage"
 
-const AboutPage = ({ data }) => (
+const AboutPage = () => (
   <Layout>
     <Seo
       title="About page"
@@ -23,7 +22,6 @@ const AboutPage = ({ data }) => (
         src="../../content/images/robots-androids-and-cyborgs-oh-my-1184x360.jpg"
         alt="A dinosaur"
       />
-      <h1>{data.site.siteMetadata.defaultTitle}</h1>
       <h1 className={styles.heading}>About this project</h1>
       <div>
         <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
@@ -47,15 +45,5 @@ const AboutPage = ({ data }) => (
     </section>
   </Layout>
 )
-
-export const query = graphql`
-  query HomePageQuery {
-    site {
-      siteMetadata {
-        defaultTitle
-      }
-    }
-  }
-`
 
 export default AboutPage
