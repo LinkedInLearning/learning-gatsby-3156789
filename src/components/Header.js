@@ -6,7 +6,7 @@ import Mainnav from "./Mainnav"
 
 import * as styles from "./header.module.css"
 
-const Header = ({ siteTitle, siteDescription }) => (
+const Header = ({ siteTitle, siteDescription, menuLinks }) => (
   <header id="site-header" className={styles.masthead} role="banner">
     <div className={styles.masthead_info}>
       <Link to="/">
@@ -21,7 +21,7 @@ const Header = ({ siteTitle, siteDescription }) => (
         <div>{siteDescription}</div>
       </Link>
     </div>
-    <Mainnav />
+    <Mainnav menuLinks={menuLinks} />
   </header>
 )
 

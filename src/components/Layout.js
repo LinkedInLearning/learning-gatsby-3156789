@@ -28,6 +28,10 @@ const Layout = ({ children }) => {
           siteMetadata {
             defaultTitle
             defaultDescription
+            menuLinks {
+              name
+              link
+            }
           }
         }
       }
@@ -42,6 +46,7 @@ const Layout = ({ children }) => {
       <Header
         siteTitle={site.siteMetadata.defaultTitle}
         siteDescription={site.siteMetadata.defaultDescription}
+        menuLinks={site.siteMetadata.menuLinks}
       />
       <main id="primary" className={styles.site_main}>
         {children}

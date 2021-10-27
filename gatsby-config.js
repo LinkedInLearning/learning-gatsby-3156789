@@ -7,6 +7,20 @@ module.exports = {
     siteUrl: `https://something.or.other`,
     logo: `/logo.png`,
     twitter: `@mor10`,
+    menuLinks: [
+      {
+        name: `Home`,
+        link: `/`,
+      },
+      {
+        name: `About`,
+        link: `/about`,
+      },
+      {
+        name: `Events`,
+        link: `/events`,
+      },
+    ],
   },
   plugins: [
     "gatsby-plugin-postcss",
