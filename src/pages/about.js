@@ -1,12 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 
 import * as styles from "./about.module.css"
-import RobotImage from "../components/RobotImage"
 
 const AboutPage = ({ data }) => (
   <Layout>
@@ -25,9 +24,9 @@ const AboutPage = ({ data }) => (
       />
       <h1 className={styles.heading}>About this project</h1>
       <div>
-        <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
-        <RobotImage src="/images/dolly-callout.png" alt="dolly the robot" />
-        <RobotImage src="/images/eileen-callout.png" alt="eileen the robot" />
+        {data.allFile.edges.map(({ node }) => (
+          <GatsbyImage image={getImage(node)} alt={node.name} key={node.id} />
+        ))}
         <p>
           Though it may not look like much, it holds all the essentials you'll
           need to get started building your own sites with Gatsby.
