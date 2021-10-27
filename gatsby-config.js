@@ -60,5 +60,19 @@ module.exports = {
       },
       __key: "content-images",
     },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `Event`, // a fixed string
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "content-events",
+        path: "./content/events/",
+      },
+      __key: "content-events",
+    },
   ],
 }
