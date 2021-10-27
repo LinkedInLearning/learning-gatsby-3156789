@@ -23,7 +23,6 @@ const AboutPage = ({ data }) => (
         src="../../content/images/robots-androids-and-cyborgs-oh-my-1184x360.jpg"
         alt="A dinosaur"
       />
-      <h1>{data.site.siteMetadata.defaultTitle}</h1>
       <h1 className={styles.heading}>About this project</h1>
       <div>
         <RobotImage src="/images/bubbles-callout.png" alt="bubbles the robot" />
@@ -50,9 +49,21 @@ const AboutPage = ({ data }) => (
 
 export const query = graphql`
   query HomePageQuery {
-    site {
-      siteMetadata {
-        defaultTitle
+    allFile(
+      filter: {
+        sourceInstanceName: { eq: "images" }
+        relativeDirectory: { eq: "robots" }
+      }
+    ) {
+      edges {
+        node {
+          relativePath
+          childImageSharp {
+            gatsbyImageData
+          }
+          id
+          name
+        }
       }
     }
   }
