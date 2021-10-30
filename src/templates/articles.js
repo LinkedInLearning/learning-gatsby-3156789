@@ -13,7 +13,7 @@ const ConditionalWrapper = ({ condition, wrapper, children }) =>
   condition ? wrapper(children) : children
 
 const ArticleIndex = ({ data, pageContext }) => {
-  const posts = data.allMarkdownRemark.edges
+  const articles = data.allMarkdownRemark.edges
 
   return (
     <Layout>
@@ -28,7 +28,7 @@ const ArticleIndex = ({ data, pageContext }) => {
       <section className={styles.articlelist}>
         <h2>Articles</h2>
         <ul>
-          {posts.map(({ node: article }, index) => (
+          {articles.map(({ node: article }, index) => (
             <li key={index} className={styles.listitem}>
               {article.frontmatter.featimg && (
                 <figure className={styles.featimg}>
