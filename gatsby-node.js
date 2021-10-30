@@ -4,6 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
 /**
  * Events
  */
@@ -39,5 +42,64 @@ exports.createResolvers = ({ createResolvers, getNode }) => {
         resolve: source => collection(source),
       },
     },
+  })
+}
+
+/**
+ * Articles
+ */
+
+// Markdown items: Create slug nodes based on folder
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `content` })
+
+    actions.createNodeField({
+      node,
+      name: `slug`,
+      value: `/articles${slug}`,
+    })
+  }
+}
+
+// Generate pages for each article.
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  console.log("createPages started")
+  const { createPage } = actions
+
+  // Query all the data
+  const queryResult = await graphql(`
+    {
+      articleQuery: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  if (queryResult.errors) {
+    reporter.panic("error loading articles", queryResult.errors)
+    return
+  }
+
+  // Generate single article pages
+  const articles = queryResult.data.articleQuery.edges
+  articles.forEach(article => {
+    createPage({
+      path: article.node.fields.slug,
+      component: path.resolve(`./src/templates/article.js`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: article.node.fields.slug,
+      },
+    })
   })
 }
