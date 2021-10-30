@@ -65,7 +65,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 // Generate pages for each article.
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  console.log("createPages started")
   const { createPage } = actions
 
   // Query all the data
