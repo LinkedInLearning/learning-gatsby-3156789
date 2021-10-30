@@ -69,7 +69,7 @@ export const query = graphql`
     }
     pastEvents: allEvent(
       filter: { collection: { eq: "past" } }
-      sort: { fields: startDate, order: ASC }
+      sort: { fields: startDate, order: DESC }
     ) {
       nodes {
         id
