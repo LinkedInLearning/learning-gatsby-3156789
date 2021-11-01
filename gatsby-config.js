@@ -34,9 +34,16 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: `The Project`,
+        short_name: `The Project`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`, // Enables "Add to homescreen" in supported browsers.
         icon: "src/images/icon.png",
       },
     },
+    "gatsby-plugin-offline",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
