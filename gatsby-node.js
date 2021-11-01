@@ -64,6 +64,33 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+// Default subject taxonomy to "random" if no subject provided.
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions
+  const typeDefs = [
+    "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+    schema.buildObjectType({
+      name: "Frontmatter",
+      fields: {
+        subject: {
+          type: "[String!]",
+          resolve(source, args, context, info) {
+            const { subject } = source
+            if (
+              source.subject == null ||
+              (Array.isArray(subject) && !subject.length)
+            ) {
+              return ["random"]
+            }
+            return subject
+          },
+        },
+      },
+    }),
+  ]
+  createTypes(typeDefs)
+}
+
 // Generate pages for each article.
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
