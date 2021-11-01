@@ -10,59 +10,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const { paginate } = require(`gatsby-awesome-pagination`)
 
 /**
- * Events
- */
-// Define the "Event" node type with a "collection" field.
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-        """
-        Event 
-        """
-        type Event implements Node @dontInfer {
-          id: ID!
-          name: String!
-          location: String!
-          startDate: Date! @dateformat @proxy(from: "start_date")
-          endDate: Date! @dateformat @proxy(from: "end_date")
-          url: String!
-          collection: String!
-        }
-      `
-  createTypes(typeDefs)
-}
-
-// Add and populate a "collection" field based on the file directory name.
-exports.createResolvers = ({ createResolvers, getNode }) => {
-  // Get the containing directory for the event (past or future)
-  const collection = source => getNode(source.parent).relativeDirectory
-
-  // Add a "collection" field to each node.
-  createResolvers({
-    Event: {
-      collection: {
-        resolve: source => collection(source),
-      },
-    },
-  })
-}
-
-/**
  * Articles
  */
-
-// Markdown items: Create slug nodes based on folder
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `content` })
-
-    actions.createNodeField({
-      node,
-      name: `slug`,
-      value: `/articles${slug}`,
-    })
-  }
-}
 
 // Default subject taxonomy to "random" if no subject provided.
 exports.createSchemaCustomization = ({ actions, schema }) => {
@@ -89,6 +38,19 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     }),
   ]
   createTypes(typeDefs)
+}
+
+// Markdown items: Create slug nodes based on folder
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `content` })
+
+    actions.createNodeField({
+      node,
+      name: `slug`,
+      value: `/articles${slug}`,
+    })
+  }
 }
 
 // Generate pages for each article.
@@ -158,5 +120,43 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: path.resolve(`./src/templates/subjects.js`), // Just like `createPage()`
       context: { subject: fieldValue },
     })
+  })
+}
+
+/**
+ * Events
+ */
+// Define the "Event" node type with a "collection" field.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+        """
+        Event 
+        """
+        type Event implements Node @dontInfer {
+          id: ID!
+          name: String!
+          location: String!
+          startDate: Date! @dateformat @proxy(from: "start_date")
+          endDate: Date! @dateformat @proxy(from: "end_date")
+          url: String!
+          collection: String!
+        }
+      `
+  createTypes(typeDefs)
+}
+
+// Add and populate a "collection" field based on the file directory name.
+exports.createResolvers = ({ createResolvers, getNode }) => {
+  // Get the containing directory for the event (past or future)
+  const collection = source => getNode(source.parent).relativeDirectory
+
+  // Add a "collection" field to each node.
+  createResolvers({
+    Event: {
+      collection: {
+        resolve: source => collection(source),
+      },
+    },
   })
 }
