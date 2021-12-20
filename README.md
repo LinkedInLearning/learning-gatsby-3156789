@@ -1,8 +1,10 @@
 # Learning Gatsby
-This is the repository for the LinkedIn Learning course `Learning Gatsby`. The full course is available from [LinkedIn Learning][lil-course-url].
+This is the repository for the LinkedIn Learning course Learning Gatsby. The full course is available from [LinkedIn Learning][lil-course-url].
 
+![Learning Gatsby][lil-thumbnail-url] 
 
-_See the readme file in the main branch for updated instructions and information._
+Gatsby offers React and WordPress developers a more comprehensive approach to web application development, complete with thorough concerns for accessibility support. Gatsby's GraphQL foundations let it extract information from a variety of data sources. In this course, instructor Morten Rand-Hendriksen shows you how Gatsby can help you build performance-focused websites. Morten steps through setting up Gatsby and breaking down a Gatsby site. He explains how to use static pages, static assets, components, and CSS in Gatsby, then dives into plugin options and adding images to a page. Morten goes over data in Gatsby, including making a page query, building an advanced GraphQL query, and adding dynamic images. After walking you through the process of creating pages dynamically, he shows you how to build the production site and add PWA and offline functionality. With each chapter featuring practical challenges and solutions, this course sets you on your way to mastering Gatsby.
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -28,8 +30,15 @@ To resolve this issue:
 3. [Course-specific instructions]
 
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+### Instructor
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+Morten Rand-Hendriksen 
+                            
+Developer and Senior Staff Instructor
 
+                            
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/morten-rand-hendriksen).
+
+[lil-course-url]: https://www.linkedin.com/learning/learning-gatsby-14442452
+[lil-thumbnail-url]: https://cdn.lynda.com/course/3156789/3156789-1639598128114-16x9.jpg
